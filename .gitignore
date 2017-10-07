@@ -1,3 +1,14 @@
-
 .idea/
+.idea
 hackaton.iml
+hackaton-saxo-arek.iml
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
