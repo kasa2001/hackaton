@@ -1,12 +1,10 @@
+### Folders ###
 .idea/
+out/
 hackaton.iml
 
-### Java ###
-# Compiled class file
-*.class
-
-# Log file
+### Log file ###
 *.log
 
-# BlueJ files
+### BlueJ files ###
 *.ctxt
