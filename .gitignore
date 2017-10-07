@@ -3,7 +3,6 @@
 hackaton.iml
 hackaton-saxo-arek.iml
 
-
 ### Java ###
 # Compiled class file
 *.class
@@ -13,14 +12,3 @@ hackaton-saxo-arek.iml
 
 # BlueJ files
 *.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
