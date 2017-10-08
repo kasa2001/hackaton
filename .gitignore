@@ -1,7 +1,6 @@
 ### Folders ###
 .idea/
 out/
-hackaton.iml
 
 ### Log file ###
 *.log
