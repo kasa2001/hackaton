@@ -1,6 +1,8 @@
 ### Folders ###
 .idea/
 out/
+.gradle
+hackaton.iml
 
 ### Log file ###
 *.log
