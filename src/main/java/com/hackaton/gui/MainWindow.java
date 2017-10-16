@@ -8,6 +8,9 @@ import java.io.File;
 
 public class MainWindow {
 
+    private File file;
+    private JLabel label;
+
     private MainWindow() {
         JFrame f = new JFrame("Program");
         JPanel contentPane = new JPanel();
@@ -17,9 +20,10 @@ public class MainWindow {
         contentPane.setLayout(new BorderLayout());
         top.setLayout(new FlowLayout());
         bottom.setLayout(new FlowLayout());
+        bottom.setBorder(BorderFactory.createEmptyBorder(20,150,10,150));
 
 
-        JLabel label = new JLabel("plik");
+        label = new JLabel("plik");
         JButton button = new JButton("Wybierz plik");
         button.addActionListener(new ActionListener() {
             @Override
@@ -27,7 +31,11 @@ public class MainWindow {
                 JFileChooser fc = new JFileChooser();
                 int val = fc.showOpenDialog(contentPane);
                 if (val == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
+                    file = fc.getSelectedFile();
+
+
+
+                    label.setText(file.getName());
                     System.out.println(file.getAbsolutePath());
                 } else {
                     System.out.println("canceled");
