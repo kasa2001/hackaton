@@ -8,15 +8,18 @@ import java.io.File;
 
 class MainWindow extends JFrame {
 
+    private Main main;
     private File file;
     private JLabel label;
 
-    MainWindow() {
+    MainWindow(Main main) {
+        this.main = main;
         JPanel contentPane = new JPanel();
         JPanel top = new JPanel();
         JPanel bottom = new JPanel();
         label = new JLabel("Nie wybrano pliku");
         JButton button = new JButton("Wybierz plik");
+        JButton analize = new JButton("Analizuj");
 
         contentPane.setLayout(new BorderLayout());
         top.setLayout(new FlowLayout());
@@ -47,13 +50,25 @@ class MainWindow extends JFrame {
 
         top.add(label);
         bottom.add(button);
+        bottom.add(analize);
 
         contentPane.add(top, BorderLayout.NORTH);
         contentPane.add(bottom, BorderLayout.SOUTH);
+
+        analize.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onAnalyze();
+            }
+        });
 
         setContentPane(contentPane);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
+    }
+
+    private void onAnalyze(){
+        main.showResult();
     }
 }

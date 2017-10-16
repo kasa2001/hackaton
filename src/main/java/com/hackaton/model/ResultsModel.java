@@ -17,10 +17,10 @@ public class ResultsModel extends AbstractTableModel {
         data.add(new TemporaryModelClass("dwa", 5));
         data.add(new TemporaryModelClass("trzy", 8));
         data.add(new TemporaryModelClass("cztery", 5));
-        for(int i=0; i<50;i++){
-            data.add(new TemporaryModelClass("aaa", 0));
-        }
-        data.add(new TemporaryModelClass("koniec", 9));
+//        for(int i=0; i<50;i++){
+//            data.add(new TemporaryModelClass("aaa", 0));
+//        }
+//        data.add(new TemporaryModelClass("koniec", 9));
     }
 
     public ResultsModel(List<ResultInterface> data) {
