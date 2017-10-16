@@ -68,6 +68,10 @@ class MainWindow extends JFrame {
         setVisible(true);
     }
 
+    public File getFile() {
+        return file;
+    }
+
     private void onAnalyze(){
         main.showResult();
     }

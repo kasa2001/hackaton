@@ -11,7 +11,7 @@ public class ResultsModel extends AbstractTableModel {
     private final Object[] COLUMNS = {"Nazwa", "Ilość"};
 
     public ResultsModel() {
-        //TODO usunąć
+        //TODO usunąć konstruktor
         data = new ArrayList<>();
         data.add(new TemporaryModelClass("start", 1));
         data.add(new TemporaryModelClass("dwa", 5));

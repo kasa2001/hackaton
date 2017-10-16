@@ -52,7 +52,6 @@ class ResultWindow extends JFrame {
                 main.showMain();
             }
         });
-//        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
     }
 

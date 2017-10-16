@@ -1,6 +1,7 @@
 package com.hackaton.gui;
 
 import java.awt.*;
+import java.io.File;
 
 public class Main implements Runnable {
 
@@ -26,6 +27,8 @@ public class Main implements Runnable {
     }
 
     void showResult(){
+        File file = mainWindow.getFile();
+
         result.setModel();
         result.setVisible(true);
         mainWindow.setVisible(false);
