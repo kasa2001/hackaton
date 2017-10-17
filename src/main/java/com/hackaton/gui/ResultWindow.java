@@ -56,7 +56,7 @@ class ResultWindow extends JFrame {
     }
 
     public void setModel() {
-        model = new ResultsModel();
+        model = new ResultsModel(null);
         table.setModel(model);
         model.fireTableDataChanged();
     }
