@@ -44,7 +44,7 @@ class ResultWindow extends JFrame {
              * Invoked when a window is in the process of being closed.
              * The close operation can be overridden at this point.
              *
-             * @param e
+             * @param e WindowEvent
              */
             @Override
             public void windowClosing(WindowEvent e) {
@@ -63,5 +63,7 @@ class ResultWindow extends JFrame {
 
     public void setModel(ResultsModel model) {
         this.model = model;
+        table.setModel(model);
+        model.fireTableDataChanged();
     }
 }

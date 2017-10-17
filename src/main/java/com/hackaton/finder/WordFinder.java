@@ -1,5 +1,6 @@
-package com.hackaton.manipulator;
+package com.hackaton.finder;
 
+import com.hackaton.interfaces.ResultInterface;
 import com.hackaton.model.KeywordsObject;
 
 import java.io.BufferedReader;
@@ -8,41 +9,45 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileManipulator {
+public class WordFinder {
 
-    private static FileManipulator fm;
+    private static WordFinder wf;
     private String path;
     private String keypath = "data/keywords_POL.txt";
     private List<KeywordsObject> keywords = new ArrayList<>();
 
-    private FileManipulator() {}
+    private WordFinder() {
+    }
 
 
     /**
      * Setting file path to read
+     *
      * @param path String path to file
-     * */
+     */
     public void setPath(String path) {
         this.path = path;
     }
 
     /**
      * Get file path to read
-     * */
+     */
     public String getPath() {
         return this.path;
     }
 
     /**
      * Method prepare keywords
-     * */
+     */
     public void prepareKeywords() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(keypath));
             String item;
             while ((item = br.readLine()) != null) {
-                this.keywords.add(new KeywordsObject(item.toLowerCase(),0));
+                item = item.toLowerCase();
+                this.keywords.add(new KeywordsObject(item.trim(), 0));
             }
+            br.close();
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -50,18 +55,19 @@ public class FileManipulator {
 
     /**
      * Method get sizeof list
-     * */
+     */
     public int getSize() {
         return this.keywords.size();
     }
 
     /**
      * Method reading file
+     *
      * @throws IOException if file not opened
-     * */
+     */
     public int readFile() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(this.path));
-        int i=0;
+        int i = 0;
 
         String item;
 
@@ -69,20 +75,32 @@ public class FileManipulator {
             this.checkString(item);
             i++;
         }
-
+        br.close();
         return i;
     }
 
     /**
-     * Method for creating (in not exists) and returning FileManipulator object
-     * @return FileManipulator
+     * Method return Result
+     * @return List<ResultInterface>
      * */
-    public static synchronized FileManipulator getInstance() {
-        if (FileManipulator.fm == null) {
-            FileManipulator.fm = new FileManipulator();
+    public List<ResultInterface> getKeywords() {
+        List<ResultInterface> result = new ArrayList<>();
+        result.addAll(this.keywords);
+
+        return result;
+    }
+
+    /**
+     * Method for creating (in not exists) and returning WordFinder object
+     *
+     * @return WordFinder
+     */
+    public static synchronized WordFinder getInstance() {
+        if (WordFinder.wf == null) {
+            WordFinder.wf = new WordFinder();
         }
 
-        return FileManipulator.fm;
+        return WordFinder.wf;
     }
 
     private void checkString(String item) {
@@ -90,8 +108,11 @@ public class FileManipulator {
 
         for (int i = 0; i < item.length(); i++) {
 
-            if (item.charAt(i) == ' ' || !Character.isLetter(item.charAt(i))) {
-
+            if ((item.length() > i) && item.charAt(i) == ' ' || !Character.isLetter(item.charAt(i))) {
+                if ((item.length() > i + 1) && item.charAt(i) == '-' && Character.isLetter(item.charAt(i + 1))) {
+                    sb.append(Character.toLowerCase(item.charAt(i)));
+                    continue;
+                }
                 i = this.skip(i, item);
 
                 this.add(sb);
@@ -108,7 +129,7 @@ public class FileManipulator {
     }
 
     private int skip(int i, String item) {
-        for (; i < item.length();i++) {
+        for (; i < item.length(); i++) {
             if (item.charAt(i) == ' ')
                 break;
         }
@@ -117,7 +138,7 @@ public class FileManipulator {
     }
 
     private void add(StringBuilder sb) {
-        for (KeywordsObject ko: this.keywords) {
+        for (KeywordsObject ko : this.keywords) {
             if (ko.getName().equals(sb.toString())) {
                 ko.increment();
                 break;

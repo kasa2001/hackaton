@@ -1,4 +1,4 @@
-import com.hackaton.manipulator.FileManipulator;
+import com.hackaton.finder.WordFinder;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class MainTest {
      * */
     @Test
     public void testFileManipulatorSetter() {
-        FileManipulator fm = FileManipulator.getInstance();
+        WordFinder fm = WordFinder.getInstance();
 
         fm.setPath("data/temporary.txt");
 
@@ -30,8 +30,8 @@ public class MainTest {
      * Method check sizeof List
      * */
     @Test
-    public void testListInFileManipulator() {
-        FileManipulator fm = FileManipulator.getInstance();
+    public void testListInWordFinder() {
+        WordFinder fm = WordFinder.getInstance();
 
         fm.prepareKeywords();
 
@@ -42,8 +42,8 @@ public class MainTest {
      * Method check reading file
      * */
     @Test
-    public void testReadingInFileManipulator() {
-        FileManipulator fm = FileManipulator.getInstance();
+    public void testReadingInWordFinder() {
+        WordFinder fm = WordFinder.getInstance();
         fm.setPath("data/test.txt");
         try {
             assertTrue(fm.readFile() == 2);

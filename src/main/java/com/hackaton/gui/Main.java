@@ -1,7 +1,13 @@
 package com.hackaton.gui;
 
+import com.hackaton.finder.WordFinder;
+import com.hackaton.interfaces.ResultInterface;
+import com.hackaton.model.ResultsModel;
+
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 public class Main implements Runnable {
 
@@ -28,8 +34,16 @@ public class Main implements Runnable {
 
     void showResult(){
         File file = mainWindow.getFile();
+        WordFinder wf = WordFinder.getInstance();
+        wf.setPath("data/temporary.txt");
+        wf.prepareKeywords();
+        try {
+            wf.readFile();
+        }catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
 
-        result.setModel();
+        result.setModel(new ResultsModel(wf.getKeywords()));
         result.setVisible(true);
         mainWindow.setVisible(false);
     }
