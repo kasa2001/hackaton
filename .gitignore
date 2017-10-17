@@ -10,4 +10,6 @@ out/
 ### BlueJ files ###
 *.ctxt
 
-hackaton.iml
+gradle/
+gradlew
+gradlew.bat
