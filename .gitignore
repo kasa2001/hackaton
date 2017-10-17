@@ -3,10 +3,6 @@
 out/
 .gradle
 *.iml
-data/rozmowa1_ENG
-data/rozmowa2_ENG
-data/rozmowa1_POL
-data/rozmowa2_POL
 
 
 ### Log file ###

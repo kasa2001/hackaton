@@ -11,14 +11,25 @@ import java.util.List;
 
 public class WordFinder {
 
-    private static WordFinder wf;
     private String path;
     private String keypath = "data/keywords_POL.txt";
     private List<KeywordsObject> keywords = new ArrayList<>();
 
-    private WordFinder() {
+    /**
+     * Constructor
+     * */
+    public WordFinder() {
     }
 
+    /**
+     * Constructor set path and key path
+     * @param path String
+     * @param keypath String
+     * */
+    public WordFinder(String path, String keypath) {
+        this.path = path;
+        this.keypath = keypath;
+    }
 
     /**
      * Setting file path to read
@@ -88,19 +99,6 @@ public class WordFinder {
         result.addAll(this.keywords);
 
         return result;
-    }
-
-    /**
-     * Method for creating (in not exists) and returning WordFinder object
-     *
-     * @return WordFinder
-     */
-    public static synchronized WordFinder getInstance() {
-        if (WordFinder.wf == null) {
-            WordFinder.wf = new WordFinder();
-        }
-
-        return WordFinder.wf;
     }
 
     private void checkString(String item) {
