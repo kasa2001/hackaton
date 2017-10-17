@@ -10,18 +10,7 @@ public class ResultsModel extends AbstractTableModel {
     private List<ResultInterface> data;
     private final Object[] COLUMNS = {"Nazwa", "Ilość"};
 
-    public ResultsModel() {
-        //TODO usunąć konstruktor
-        data = new ArrayList<>();
-        data.add(new TemporaryModelClass("start", 1));
-        data.add(new TemporaryModelClass("dwa", 5));
-        data.add(new TemporaryModelClass("trzy", 8));
-        data.add(new TemporaryModelClass("cztery", 5));
-//        for(int i=0; i<50;i++){
-//            data.add(new TemporaryModelClass("aaa", 0));
-//        }
-//        data.add(new TemporaryModelClass("koniec", 9));
-    }
+    public ResultsModel(){}
 
     public ResultsModel(List<ResultInterface> data) {
         this.data = data;
