@@ -33,7 +33,7 @@ public class Main implements Runnable {
     void showResult(){
         File file = mainWindow.getFile();
 
-        WordFinder wf = WordFinder.getInstance();
+        WordFinder wf = new WordFinder();
         wf.setPath("data/temporary.txt");
         wf.prepareKeywords();
         try {
