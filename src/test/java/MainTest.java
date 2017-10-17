@@ -18,7 +18,7 @@ public class MainTest {
      * */
     @Test
     public void testWordFinderSetter() {
-        WordFinder fm = WordFinder.getInstance();
+        WordFinder fm = new WordFinder();
 
         fm.setPath("data/temporary.txt");
 
@@ -31,7 +31,7 @@ public class MainTest {
      * */
     @Test
     public void testListInWordFinder() {
-        WordFinder fm = WordFinder.getInstance();
+        WordFinder fm = new WordFinder();
 
         fm.prepareKeywords();
 
@@ -43,7 +43,7 @@ public class MainTest {
      * */
     @Test
     public void testReadingInWordFinder() {
-        WordFinder fm = WordFinder.getInstance();
+        WordFinder fm = new WordFinder();
         fm.setPath("data/test.txt");
         try {
             assertEquals(fm.readFile(),2);
