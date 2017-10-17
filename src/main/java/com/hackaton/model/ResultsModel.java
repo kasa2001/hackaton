@@ -10,8 +10,6 @@ public class ResultsModel extends AbstractTableModel {
     private List<ResultInterface> data;
     private final Object[] COLUMNS = {"Nazwa", "Ilość"};
 
-    public ResultsModel(){}
-
     public ResultsModel(List<ResultInterface> data) {
         this.data = data;
     }

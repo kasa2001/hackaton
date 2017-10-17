@@ -22,7 +22,7 @@ public class MainTest {
 
         fm.setPath("data/temporary.txt");
 
-        assertTrue(fm.getPath().equals("data/temporary.txt"));
+        assertEquals(fm.getPath(), "data/temporary.txt");
     }
 
 
@@ -35,7 +35,7 @@ public class MainTest {
 
         fm.prepareKeywords();
 
-        assertTrue(fm.getSize() == 12);
+        assertEquals(fm.getSize(),12);
     }
 
     /**
@@ -46,7 +46,7 @@ public class MainTest {
         WordFinder fm = WordFinder.getInstance();
         fm.setPath("data/test.txt");
         try {
-            assertTrue(fm.readFile() == 2);
+            assertEquals(fm.readFile(),2);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
