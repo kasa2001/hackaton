@@ -17,7 +17,7 @@ public class MainTest {
      * Method check setting path
      * */
     @Test
-    public void testFileManipulatorSetter() {
+    public void testWordFinderSetter() {
         WordFinder fm = WordFinder.getInstance();
 
         fm.setPath("data/temporary.txt");
