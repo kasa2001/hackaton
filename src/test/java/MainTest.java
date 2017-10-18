@@ -1,6 +1,10 @@
 import com.hackaton.finder.WordFinder;
+import com.hackaton.microphone.Microphone;
+import com.hackaton.microphone.MicrophoneException;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
+import javax.sound.sampled.AudioFormat;
 import java.io.IOException;
 
 import static org.junit.Assert.*;
@@ -48,6 +52,26 @@ public class MainTest {
         try {
             assertEquals(fm.readFile(),2);
         } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testCreateMicrophone() {
+        try {
+            new Microphone(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 20000000, 16, 1, 2, 20000000, true));
+        } catch (MicrophoneException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testConnection() {
+        try {
+            Microphone m = new Microphone(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 20000000, 16, 1, 2, 20000000, true));
+            m.openStream();
+            m.closeStream();
+        } catch (MicrophoneException e) {
             System.err.println(e.getMessage());
         }
     }

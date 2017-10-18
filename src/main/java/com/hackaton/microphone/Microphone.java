@@ -7,8 +7,11 @@ public class Microphone {
     private DataLine.Info info;
     private AudioFormat format;
 
-    public Microphone(AudioFormat format) {
+    public Microphone(AudioFormat format) throws MicrophoneException {
         this.info = new DataLine.Info(TargetDataLine.class, format);
+        if (!AudioSystem.isLineSupported(info)) {
+            throw new MicrophoneException();
+        }
         this.format = format;
     }
 
