@@ -106,7 +106,7 @@ public class WordFinder {
 
         for (int i = 0; i < item.length(); i++) {
 
-            if ((item.length() > i) && item.charAt(i) == ' ' || !Character.isLetter(item.charAt(i))) {
+            if (item.charAt(i) == ' ' || !Character.isLetter(item.charAt(i))) {
                 if ((item.length() > i + 1) && item.charAt(i) == '-' && Character.isLetter(item.charAt(i + 1))) {
                     sb.append(Character.toLowerCase(item.charAt(i)));
                     continue;
