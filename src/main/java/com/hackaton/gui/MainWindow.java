@@ -1,6 +1,7 @@
 package com.hackaton.gui;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +36,11 @@ class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fc = new JFileChooser();
+
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("pliki audio", "mp3");
+                fc.setFileFilter(filter);
+                fc.setAcceptAllFileFilterUsed(false);
+
                 int val = fc.showOpenDialog(contentPane);
 
                 if (val == JFileChooser.APPROVE_OPTION) {
