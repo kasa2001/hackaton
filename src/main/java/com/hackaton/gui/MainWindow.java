@@ -18,15 +18,18 @@ class MainWindow extends JFrame {
         JPanel contentPane = new JPanel();
         JPanel top = new JPanel();
         JPanel bottom = new JPanel();
+        JPanel mid = new JPanel();
         label = new JLabel("Nie wybrano pliku");
         JButton button = new JButton("Wybierz plik");
         JButton analize = new JButton("Analizuj");
+        JProgressBar progressBar = new JProgressBar();
 
         contentPane.setLayout(new BorderLayout());
         top.setLayout(new FlowLayout());
         bottom.setLayout(new FlowLayout());
         top.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
-        bottom.setBorder(BorderFactory.createEmptyBorder(20, 150, 10, 150));
+        mid.setBorder(BorderFactory.createEmptyBorder(10,0,0,10));
+        bottom.setBorder(BorderFactory.createEmptyBorder(10, 150, 10, 150));
 
 
         button.addActionListener(new ActionListener() {
@@ -53,12 +56,16 @@ class MainWindow extends JFrame {
             }
         });
 
+        progressBar.setValue(50);
 
         top.add(label);
+        mid.add(progressBar);
         bottom.add(button);
         bottom.add(analize);
 
+
         contentPane.add(top, BorderLayout.NORTH);
+        contentPane.add(mid, BorderLayout.CENTER);
         contentPane.add(bottom, BorderLayout.SOUTH);
 
         analize.addActionListener(new ActionListener() {
