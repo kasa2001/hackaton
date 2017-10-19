@@ -1,8 +1,7 @@
 import com.hackaton.finder.WordFinder;
 import com.hackaton.microphone.Microphone;
-import com.hackaton.microphone.MicrophoneException;
+import com.hackaton.exception.MicrophoneException;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 import javax.sound.sampled.AudioFormat;
 import java.io.IOException;
@@ -68,7 +67,7 @@ public class MainTest {
     @Test
     public void testConnection() {
         try {
-            Microphone m = new Microphone(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 20000000, 16, 1, 2, 20000000, true));
+            Microphone m = new Microphone(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 44000, 16, 1, 2, 5000, true));
             m.openStream();
             m.closeStream();
         } catch (MicrophoneException e) {

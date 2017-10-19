@@ -1,4 +1,4 @@
-package com.hackaton.microphone;
+package com.hackaton.exception;
 
 public class MicrophoneException extends Exception {
 

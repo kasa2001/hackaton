@@ -1,5 +1,7 @@
 package com.hackaton.microphone;
 
+import com.hackaton.exception.MicrophoneException;
+
 import javax.sound.sampled.*;
 
 public class Microphone {
