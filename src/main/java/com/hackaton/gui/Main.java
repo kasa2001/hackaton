@@ -1,8 +1,10 @@
 package com.hackaton.gui;
 
 import com.hackaton.finder.WordFinder;
+import com.hackaton.model.DataBase;
 import com.hackaton.model.ResultsModel;
 
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -30,15 +32,18 @@ public class Main implements Runnable {
         showMain();
     }
 
-    void showResult(){
+    void showResult() {
         File file = mainWindow.getFile();
+
+//        DataBase.getInstance();
 
         WordFinder wf = new WordFinder();
         wf.setPath("data/temporary.txt");
+//        wf.setPath(file.getPath());
         wf.prepareKeywords();
         try {
             wf.readFile();
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.err.println(e.getMessage());
         }
 
@@ -48,12 +53,18 @@ public class Main implements Runnable {
         mainWindow.setVisible(false);
     }
 
-    void showMain(){
+    void showMain() {
         mainWindow.setVisible(true);
         result.setVisible(false);
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Main());
+
+//        EventQueue.invokeLater(new Main());
+
+        String fileName = "data/rozmowa1_POL/rozmowa1a.mp3";
+        DataBase db = new DataBase();
+        db.fileToDatabase(fileName);
+        db.close();
     }
 }
