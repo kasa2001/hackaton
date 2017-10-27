@@ -158,30 +158,12 @@ public class DataBase {
 
     /**
      * Method to close connection
-     * */
+     */
     public void close() {
         try {
             conn.close();
         } catch (SQLException e) {
             System.err.println("Problem z zamknieciem polaczenia");
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Read data from file and write to base
-     * @param fileName name of file to read
-     * */
-    public void fileToDatabase(String fileName){
-        try {
-            FileInputStream file = new FileInputStream(fileName);
-            DataInputStream dataInputStream = new DataInputStream(file);
-            BufferedInputStream in = new BufferedInputStream(dataInputStream);
-
-
-
-            in.close();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }

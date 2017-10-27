@@ -1,11 +1,9 @@
 package com.hackaton.gui;
 
 import com.hackaton.finder.WordFinder;
-import com.hackaton.model.DataBase;
+import com.hackaton.model.FileReader;
 import com.hackaton.model.ResultsModel;
 
-import javax.xml.crypto.Data;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -63,8 +61,6 @@ public class Main implements Runnable {
 //        EventQueue.invokeLater(new Main());
 
         String fileName = "data/rozmowa1_POL/rozmowa1a.mp3";
-        DataBase db = new DataBase();
-        db.fileToDatabase(fileName);
-        db.close();
+        FileReader.fileToDatabase(fileName);
     }
 }

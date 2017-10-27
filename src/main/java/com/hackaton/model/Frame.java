@@ -14,6 +14,9 @@ public class Frame {
   private boolean original;
   private int emphasis;
 
+  public Frame() {
+  }
+
   public Frame(int id, int mpeg_version, int layer,
                boolean protection_bit, int bitrate,
                int sampling, boolean padding, int channel,
