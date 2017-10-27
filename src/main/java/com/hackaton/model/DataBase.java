@@ -54,6 +54,7 @@ public class DataBase {
         try {
             stat.execute(delete);
             stat.execute(create);
+
         } catch (SQLException e) {
             System.err.println("Blad przy tworzeniu tabeli");
             e.printStackTrace();
